@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 	resources :events
-	root 'events#index'
+	root 'events#index' 
   # resources :people
 	# get "welcome/say_hello" => "welcome#say"
 	# get "welcome" => "welcome#index"
