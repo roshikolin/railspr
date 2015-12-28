@@ -1,14 +1,32 @@
-<ul>
-<% @events.each do |event| %>
-	<li>
-		<%= event.name %>
-		<%= link_to "Show", event_path(event) %>
-		<%= link_to 'Edit', edit_event_path(event) %>
-		<%= button_to 'Delete', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" } %>
-	</li>
-<% end %>
+<ul> 
+
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+		<th>description</th>
+		<th>info</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+			<tr>
+				<td><%= event.name %></td>
+				<td>	
+					<%= link_to "Show", event_path(event) %>
+					<%= link_to 'Edit', edit_event_path(event) %>
+					<%= link_to 'Delete', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
 </ul>
 
+<ul class="pagination">
 <%= paginate @events %>
+</ul>
 
+<br />
 <%= link_to 'New Event', new_event_path %>
