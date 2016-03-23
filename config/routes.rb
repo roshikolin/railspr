@@ -1,6 +1,29 @@
 Rails.application.routes.draw do
+	resources :downloads
+	
+	devise_for :users
+	
 	resources :events
+	
 	root 'events#index' 
+	
+	resources :groups do
+		member do
+			post :join
+			post :quit
+		end
+	
+		resources :posts
+	end
+	
+	namespace :account do
+	   resources :groups
+	   resources :posts
+	end
+	
+	
+	
+	
   # resources :people
 	# get "welcome/say_hello" => "welcome#say"
 	# get "welcome" => "welcome#index"

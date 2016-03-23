@@ -1,5 +1,5 @@
 class CreateCategories < ActiveRecord::Migration
-  def change
+	def change
     create_table :categories do |t|
 		t.string :name
 		t.integer :position
